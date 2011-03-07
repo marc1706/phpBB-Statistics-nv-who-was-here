@@ -1,0 +1,203 @@
+<!-- INCLUDE stats/stats_header.html -->
+<!--version $Id: stats_wwh.html 121 2010-04-24 15:44:27Z marc1706 $ //-->
+<form id="stats" method="post" action="{S_STATS_ACTION}"{S_FORM_ENCTYPE}>
+<h2>{L_TITLE}</h2>
+
+<div class="panel">
+	<div class="inner_fs"><span class="corners-top"><span></span></span>
+	<h3>{L_OVERALL}</h3>
+	<table class="fs_details_list">
+		<tr>
+			<td class="col1">{L_TOTAL_VISITS}:</td><td class="col2">{TOTAL_VISITS}</td>
+			<td class="col3">{L_TOTAL_VISITS_REG}:</td><td class="col4">{TOTAL_VISITS_REG}</td>
+		</tr>		
+		<tr>
+			<td class="col1">{L_TOTAL_VISITS_ANOM}:</td> <td class="col2">{TOTAL_VISITS_ANOM}</td>
+			<td class="col3">{L_TOTAL_VISITS_BOTS}:</td> <td class="col4">{TOTAL_VISITS_BOTS}</td>
+		</tr>
+		<tr>
+			<td class="col1">{L_TOTAL_VISITS_HID}:</td> <td class="col2">{TOTAL_VISITS_HID}</td>
+			<td class="col3">{L_REAL_TOTAL_VISITS}:</td> <td class="col4">{REAL_TOTAL_VISITS}</td>
+		</tr>
+	</table><br />
+	<h3>{L_TOTAL_PURGES}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_PURGE_TOTAL -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN purge_total_row -->
+			<tr<!-- IF purge_total_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {purge_total_row.TIME}</td><td><div class="graph" style="width:{purge_total_row.BARWIDTH}%;">&nbsp;</div></td><td>{purge_total_row.COUNT}</td><td>{purge_total_row.PCT}%</td>
+			</tr>
+		<!-- END purge_total_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{L_REGISTERED_PURGES}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_PURGE_REGISTERED -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN purge_registered_row -->
+			<tr<!-- IF purge_registered_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {purge_registered_row.TIME}</td><td><div class="graph" style="width:{purge_registered_row.BARWIDTH}%;">&nbsp;</div></td><td>{purge_registered_row.COUNT}</td><td>{purge_registered_row.PCT}%</td>
+			</tr>
+		<!-- END purge_registered_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{L_GUESTS_PURGES}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_PURGE_GUESTS -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN purge_guests_row -->
+			<tr<!-- IF purge_guests_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {purge_guests_row.TIME}</td><td><div class="graph" style="width:{purge_guests_row.BARWIDTH}%;">&nbsp;</div></td><td>{purge_guests_row.COUNT}</td><td>{purge_guests_row.PCT}%</td>
+			</tr>
+		<!-- END purge_guests_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{L_BOTS_PURGES}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_PURGE_BOTS -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN purge_bots_row -->
+			<tr<!-- IF purge_bots_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {purge_bots_row.TIME}</td><td><div class="graph" style="width:{purge_bots_row.BARWIDTH}%;">&nbsp;</div></td><td>{purge_bots_row.COUNT}</td><td>{purge_bots_row.PCT}%</td>
+			</tr>
+		<!-- END purge_bots_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{L_HIDDEN_PURGES}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_PURGE_HIDDEN -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN purge_hidden_row -->
+			<tr<!-- IF purge_hidden_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {purge_hidden_row.TIME}</td><td><div class="graph" style="width:{purge_hidden_row.BARWIDTH}%;">&nbsp;</div></td><td>{purge_hidden_row.COUNT}</td><td>{purge_hidden_row.PCT}%</td>
+			</tr>
+		<!-- END purge_hidden_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{L_VISIT_BY_TIME}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_TIMES_ROW -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_TIME}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN times_row -->
+			<tr<!-- IF times_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {times_row.TIME}</td><td><div class="graph" style="width:{times_row.BARWIDTH}%;">&nbsp;</div></td><td>{times_row.COUNT}</td><td>{times_row.PCT}%</td>
+			</tr>
+		<!-- END times_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<h3>{VISITS_BY_USER}</h3>
+	<table class="fs_details_graphs">
+		<!-- IF S_USER_VISITS -->
+			<colgroup span="4">
+				<col class="col_cat" />
+				<col class="col_bar" />
+				<col class="col_count" />
+				<col class="col_pct" />
+			</colgroup>
+			<thead>
+			<tr>
+				<td>{L_USERS}</td>
+				<td></td>
+				<td>{L_COUNT}</td>
+				<td>{L_PERCENT}</td>
+			</tr>
+			</thead>		
+		<!-- BEGIN users_row -->
+			<tr<!-- IF users_row.IS_MAX--> style="font-weight:bold"<!-- ENDIF -->>
+			<td>&bull; {users_row.USER}</td><td><div class="graph" style="width:{users_row.BARWIDTH}%;">&nbsp;</div></td><td>{users_row.COUNT}</td><td>{users_row.PCT}%</td>
+			</tr>
+		<!-- END users_row -->
+		<!-- ELSE --><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_NONE}</td></tr>
+		<!-- ENDIF -->
+	</table><br />
+	<hr /><div class="user_prompt"><span>{LIMIT_SELECT_BOX}</span></div><br />
+	<hr /><div style="text-align:right;"><span><i>{AS_ON}</i></span></div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>
+<!-- INCLUDE stats/stats_footer.html -->
